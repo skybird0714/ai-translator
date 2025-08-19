@@ -1,0 +1,407 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --primary-color: #0071e3;
+  --secondary-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --light-text: #86868b;
+  --border-color: #d2d2d7;
+  --success-color: #34c759;
+  --warning-color: #ff9500;
+  --error-color: #ff3b30;
+  --card-bg: #ffffff;
+  --gradient-start: #f5f5f7;
+  --gradient-end: #ffffff;
+  --transition-speed: 0.3s;
+}
+
+/* 暗黑模式变量 */
+body.dark-mode {
+  --primary-color: #0a84ff;
+  --secondary-color: #1c1c1e;
+  --text-color: #f5f5f7;
+  --light-text: #8e8e93;
+  --border-color: #38383a;
+  --card-bg: #2c2c2e;
+  --gradient-start: #1c1c1e;
+  --gradient-end: #2c2c2e;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+  min-height: 100vh;
+  color: var(--text-color);
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 确保所有需要过渡的元素都有过渡效果 */
+body,
+.settings-container,
+.translation-box,
+.api-key-section input,
+select,
+textarea,
+button {
+  transition: all var(--transition-speed) ease;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+  min-height: 100vh;
+  color: var(--text-color);
+  padding: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+/* 头部样式 */
+header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* 设置区域样式 */
+.settings-container {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.model-selection {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.custom-model-container {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#customModelInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+#customModelInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+.model-selection label {
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.footer-links span {
+  color: var(--light-text);
+}
+
+.api-key-section {
+  display: flex;
+  gap: 10px;
+}
+
+#apiKey {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+#apiKey:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+#saveApiKey {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#saveApiKey:hover {
+  background-color: #0066cc;
+}
+
+#saveApiKey:active {
+  background-color: #0052a3;
+}
+
+/* 翻译区域样式 */
+.translation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* 确保容器宽度为100% */
+}
+
+.translation-box {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%; /* 移动设备上宽度为100% */
+}
+
+.language-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+#swapLanguages {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#swapLanguages:hover {
+  background-color: rgba(0, 113, 227, 0.1);
+}
+
+textarea {
+  flex: 1;
+  min-height: 300px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+.translation-box div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#clearSource, #copyResult {
+  background-color: transparent;
+  border: none;
+  color: var(--light-text);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#clearSource:hover, #copyResult:hover {
+  background-color: rgba(134, 134, 139, 0.1);
+  color: var(--primary-color);
+}
+
+/* 修复翻译按钮的类名语法错误 */
+.translate-button {
+  align-self: center;
+  padding: 12px 32px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px; /* 改为小圆角，使其更像长方形 */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.translate-button:hover {
+  background-color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.translate-button:active {
+  background-color: #0052a3;
+  transform: translateY(0);
+}
+
+.translate-button i {
+  font-size: 1.2rem;
+}
+
+/* 页脚样式 */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+  .translation-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .translation-box {
+    flex: 2; /* 桌面设备上宽度增加一倍 */
+    max-width: calc(50% - 10px); /* 确保不会超出容器 */
+  }
+
+  .translate-button {
+    rotate: 0; /* 取消旋转 */
+    height: auto; /* 恢复默认高度 */
+    width: auto; /* 恢复默认宽度 */
+    border-radius: 8px; /* 保持小圆角 */
+    padding: 12px 24px; /* 恢复padding */
+  }
+}
+
+/* 提示消息样式 */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background-color: var(--success-color);
+}
+
+.toast.warning {
+  background-color: var(--warning-color);
+}
+
+.toast.error {
+  background-color: var(--error-color);
+}
